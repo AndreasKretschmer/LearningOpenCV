@@ -1,5 +1,5 @@
-project "App"
-   kind "ConsoleApp"
+project "Core"
+   kind "StaticLib"
    language "C++"
    cppdialect "C++20"
    targetdir "Binaries/%{cfg.buildcfg}"
@@ -11,13 +11,16 @@ project "App"
    {
       "Source",
 
-	  -- Include Core
-	  "../Core/Source"
-   }
+      "../vendor/imgui",
 
+      "%{IncludeDir.VulkanSDK}"
+   }
+   
    links
    {
-      "Core"
+       "ImGui",
+
+       "%{Library.Vulkan}"
    }
 
    targetdir ("../Binaries/" .. OutputDir .. "/%{prj.name}")
@@ -25,7 +28,7 @@ project "App"
 
    filter "system:windows"
        systemversion "latest"
-       defines { "WINDOWS" }
+       defines { }
 
    filter "configurations:Debug"
        defines { "DEBUG" }
@@ -37,9 +40,3 @@ project "App"
        runtime "Release"
        optimize "On"
        symbols "On"
-
-   filter "configurations:Dist"
-       defines { "DIST" }
-       runtime "Release"
-       optimize "On"
-       symbols "Off"
