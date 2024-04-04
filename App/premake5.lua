@@ -12,9 +12,11 @@ project "App"
       "Source",
 
 	  "../Core/Source",
-      "C:/opencv/build/include",
       "../vendor/imgui",
-      "%{IncludeDir.VulkanSDK}"
+      "../vendor/glfw/include",
+
+      "%{IncludeDir.VulkanSDK}",
+      "C:/opencv/build/include",
    }
    libdirs 
    {
