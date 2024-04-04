@@ -5,3 +5,6 @@
 	path = Vendor/imgui
 	url = https://github.com/AndreasKretschmer/imgui.git
 	branch = docking
+[submodule "Vendor/glfw"]
+	path = Vendor/glfw
+	url = https://github.com/AndreasKretschmer/glfw
