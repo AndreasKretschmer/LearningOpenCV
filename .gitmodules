@@ -1,0 +1,7 @@
+[submodule "App/vendor/imgui"]
+	path = App/vendor/imgui
+	url = https://github.com/AndreasKretschmer/imgui
+[submodule "Vendor/imgui"]
+	path = Vendor/imgui
+	url = https://github.com/AndreasKretschmer/imgui.git
+	branch = docking
