@@ -12,6 +12,7 @@ project "Core"
       "Source",
 
       "../vendor/imgui",
+      "../vendor/glfw/include",
 
       "%{IncludeDir.VulkanSDK}"
    }
@@ -19,6 +20,7 @@ project "Core"
    links
    {
        "ImGui",
+       "GLFW",
 
        "%{Library.Vulkan}"
    }

@@ -32,7 +32,7 @@ project "App"
 
    filter "system:windows"
        systemversion "latest"
-       defines { "WINDOWS" }
+       defines { "WINDOWS_PLATFORM" }
 
    filter "configurations:Debug"
        defines { "DEBUG" }
