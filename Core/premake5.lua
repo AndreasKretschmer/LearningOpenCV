@@ -14,9 +14,13 @@ project "Core"
       "../vendor/imgui",
       "../vendor/glfw/include",
 
-      "%{IncludeDir.VulkanSDK}"
+      "%{IncludeDir.VulkanSDK}",
+      "C:/opencv/build/include",
    }
-   
+   libdirs 
+   {
+       "C:/opencv/build/x64/vc16/lib"
+   }
    links
    {
        "ImGui",
@@ -36,9 +40,17 @@ project "Core"
        defines { "DEBUG" }
        runtime "Debug"
        symbols "On"
+       links
+       { 
+            "opencv_world490d"
+       }
 
    filter "configurations:Release"
        defines { "RELEASE" }
        runtime "Release"
        optimize "On"
        symbols "On"
+       links
+       {
+            "opencv_world490"
+       }

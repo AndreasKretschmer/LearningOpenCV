@@ -16,7 +16,6 @@ project "App"
       "../vendor/glfw/include",
 
       "%{IncludeDir.VulkanSDK}",
-      "C:/opencv/build/include",
    }
    libdirs 
    {

@@ -16,6 +16,8 @@
 
 #include <iostream>
 
+#include "ImGui/CustomImGuiTheme.h"
+
 // Emedded font
 //#include "ImGui/Roboto-Regular.embed"
 
@@ -460,8 +462,10 @@ namespace locv {
 		//io.ConfigViewportsNoTaskBarIcon = true;
 
 		// Setup Dear ImGui style
-		ImGui::StyleColorsDark();
+		//ImGui::StyleColorsDark();
 		//ImGui::StyleColorsClassic();
+		SetTheme();
+
 
 		// When viewports are enabled we tweak WindowRounding/WindowBg so platform windows can look identical to regular ones.
 		ImGuiStyle& style = ImGui::GetStyle();
@@ -493,10 +497,10 @@ namespace locv {
 
 	void Application::Shutdown()
 	{
-		//for (auto& layer : m_LayerStack)
-		//	layer->OnDetach();
+		for (auto& layer : m_LayerStack)
+			layer->OnDetach();
 
-		//m_LayerStack.clear();
+		m_LayerStack.clear();
 
 		// Cleanup
 		VkResult err = vkDeviceWaitIdle(g_Device);
@@ -541,8 +545,8 @@ namespace locv {
 			// Generally you may always pass all inputs to dear imgui, and hide them from your application based on those two flags.
 			glfwPollEvents();
 
-			//for (auto& layer : m_LayerStack)
-			//	layer->OnUpdate(m_TimeStep);
+			for (auto& layer : m_LayerStack)
+				layer->OnUpdate(m_TimeStep);
 
 			// Resize swap chain?
 			if (g_SwapChainRebuild)
